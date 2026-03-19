@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="hi" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>क़ुरआन वर्ल्ड व्यू · रमज़ान चैलेंज 2026</title>
+  <meta name="description" content="रमज़ान चैलेंज 2026 — आपकी आवाज़, आपका सफ़र।">
+  <meta name="theme-color" content="#0A0C10">
+  <meta property="og:title" content="QWV · रमज़ान चैलेंज 2026">
+  <meta property="og:description" content="30 दिन। 30 काम। 30 आयतें। यह सफ़र यहाँ ख़त्म नहीं होता।">
+  <meta property="og:image" content="icons/logo.png">
+  <link rel="icon" href="icons/logo.png" type="image/png">
+  <link rel="stylesheet" href="css/design.css">
+</head>
+<body>
+
+<!-- Theme toggle -->
+<button class="theme-toggle" id="theme-toggle" title="Toggle theme" aria-label="Toggle light/dark mode">☀️</button>
+
+<div class="app">
+
+  <!-- ══ SCREEN: COVER ══════════════════════════════════ -->
+  <div id="screen-cover" class="screen active">
+    <div class="cover">
+
+      <div class="cover-bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+
+      <img src="icons/logo.png" alt="QWV" class="cover-logo">
+
+      <div class="cover-eyebrow">Qur'an World View · रमज़ान 1447</div>
+
+      <h1 class="cover-title">
+        रमज़ान <span>चैलेंज</span><br>2026
+      </h1>
+
+      <div class="cover-subtitle-hi">आपकी आवाज़ — आपका सफ़र</div>
+      <div class="cover-subtitle-en">Your Voice — Your Journey</div>
+
+      <div class="cover-divider"></div>
+
+      <div class="ayah-callout" style="max-width:500px; margin:0 auto 32px;">
+        <div class="ayah-arabic">ٱلرَّحۡمَـٰنُ ۝ عَلَّمَ ٱلۡقُرۡءَانَ</div>
+        <div class="ayah-trans-hi">"रहमान। उसी ने क़ुरआन सिखाया।"</div>
+        <div class="ayah-trans-en">"The Most Merciful. He taught the Qur'an."</div>
+        <div class="ayah-ref">Ar-Rahman: 1–2</div>
+      </div>
+
+      <p class="cover-meta" style="margin-bottom:12px; max-width:440px; line-height:1.9; font-size:13px; text-transform:none; letter-spacing:0; color:var(--text); font-family:var(--font-devanagari);">
+        30 दिन हम इस मुश्किल में साथ चले। अब वक़्त है रुककर देखने का — क्या बदला, क्या उतरा, दिल अब कहाँ है।
+      </p>
+      <p style="font-size:12px; font-style:italic; color:var(--text-muted); margin-bottom:40px; font-family:var(--font-serif);">
+        30 days we walked through it together. Now — pause, reflect, and tell us where you are.
+      </p>
+
+      <button id="cover-cta" class="btn-primary">
+        शुरू करें &nbsp;·&nbsp; Begin
+        <span style="font-size:16px;">✦</span>
+      </button>
+
+      <p style="margin-top:20px; font-size:11px; color:var(--text-faint);">
+        ~8 मिनट · 13 सवाल
+      </p>
+
+    </div>
+  </div>
+
+  <!-- ══ SCREEN: FORM ════════════════════════════════════ -->
+  <div id="screen-form" class="screen">
+
+    <!-- Sticky progress bar -->
+    <div class="progress-wrap">
+      <div class="progress-inner">
+        <div class="progress-label">
+          <span id="progress-section-label" class="progress-section"></span>
+          <span id="progress-count" class="progress-count"></span>
+        </div>
+        <div class="progress-track">
+          <div id="progress-fill" class="progress-fill" style="width:0%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SECTION 1: क्या आप मौजूद रहे? ──────────────── -->
+    <div id="section-1" class="form-section" style="display:none">
+
+      <div class="section-header">
+        <div class="section-eyebrow">Section 1 of 4</div>
+        <div class="section-title-hi">क्या आप मौजूद रहे?</div>
+        <div class="section-title-en">Did you show up?</div>
+      </div>
+
+      <!-- Q0a — Name -->
+      <div class="question-card" data-qid="q0_name" data-required="true">
+        <div class="q-header">
+          <div class="q-num">—</div>
+          <div class="q-text">
+            <div class="q-badge badge-short">YOUR NAME</div>
+            <div class="q-text-hi">आपका नाम<span class="required">*</span></div>
+            <div class="q-text-en">Your name — so we know who you are</div>
+          </div>
+        </div>
+        <input
+          type="text"
+          class="text-input"
+          placeholder="नाम लिखें... / Enter your name..."
+          oninput="onTextInput('q0_name',this)"
+          autocomplete="name"
+        >
+        <div class="error-msg">कृपया अपना नाम लिखें · Please enter your name</div>
+      </div>
+
+      <!-- Q0b — Contact -->
+      <div class="question-card" data-qid="q0_contact" data-required="true">
+        <div class="q-header">
+          <div class="q-num">—</div>
+          <div class="q-text">
+            <div class="q-badge badge-short">CONTACT</div>
+            <div class="q-text-hi">व्हाट्सऐप नंबर या ईमेल<span class="required">*</span></div>
+            <div class="q-text-en">WhatsApp number or email — so we can reach you</div>
+          </div>
+        </div>
+        <input
+          type="text"
+          class="text-input"
+          placeholder="+91 XXXXX XXXXX या email@example.com"
+          oninput="onTextInput('q0_contact',this)"
+          autocomplete="email"
+        >
+        <div class="error-msg">कृपया नंबर या ईमेल लिखें · Please enter your contact</div>
+      </div>
+
+      <!-- Q1 -->
+      <div class="question-card" data-qid="q1_days" data-required="true">
+        <div class="q-header">
+          <div class="q-num">01</div>
+          <div class="q-text">
+            <div class="q-badge badge-mcq">MCQ</div>
+            <div class="q-text-hi">आपने कुल कितने दिन चैलेंज में हिस्सा लिया?<span class="required">*</span></div>
+            <div class="q-text-en">How many days did you participate in the challenge overall?</div>
+          </div>
+        </div>
+        <ul class="options-list">
+          <li class="option-item" onclick="selectOption('q1_days','1-10',this)">
+            <div class="option-radio"></div>
+            <div class="option-text">
+              <div class="option-hi">1–10 दिन</div>
+              <div class="option-en">1–10 days — I started but life got in the way</div>
+            </div>
+          </li>
+          <li class="option-item" onclick="selectOption('q1_days','11-20',this)">
+            <div class="option-radio"></div>
+            <div class="option-text">
+              <div class="option-hi">11–20 दिन</div>
+              <div class="option-en">11–20 days — I was there for more than half</div>
+            </div>
+          </li>
+          <li class="option-item" onclick="selectOption('q1_days','21-25',this)">
+            <div class="option-radio"></div>
+            <div class="option-text">
+              <div class="option-hi">21–25 दिन</div>
+              <div class="option-en">21–25 days — mostly consistent</div>
+            </div>
+          </li>
+          <li class="option-item" onclick="selectOption('q1_days','26-30',this)">
+            <div class="option-radio"></div>
+            <div class="option-text">
+              <div class="option-hi">26–30 दिन — पूरा सफ़र</div>
+              <div class="option-en">26–30 days — the full journey, alhamdulillah</div>
+            </div>
+          </li>
+        </ul>
+        <div class="error-msg">कृपया एक जवाब चुनें · Please select an answer</div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="question-card" data-qid="q2_timing" data-required="true">
+        <div class="q-header">
+          <div class="q-num">02</div>
+          <div class="q-text">
+            <div class="q-badge badge-mcq">MCQ</div>
+            <div class="q-text-hi">रोज़ाना के काम आपने ज़्यादातर कब पूरे किए?<span class="required">*</span></div>
+            <div class="q-text-en">When did you mostly complete the daily tasks?</div>
+          </div>
+        </div>
+        <ul class="options-list">
+          <li class="option-item" onclick="selectOption('q2_timing','fajr',this)">
+            <div class="option-radio"></div>
+            <div class="option-text">
+              <div class="option-hi">फ़ज्र के बाद — दिन की शुरुआत में</div>
+              <div class="option-en">After Fajr — early in the day</div>
+            </div>
+          </li>
+          <li class="option-item" onclick="selectOption('q2_timing','day',this)">
+            <div class="option-radio"></div>
+            <div class="option-text">
+              <div class="option-hi">दिन के दौरान — जब वक़्त मिला</div>
+              <div class="option-en">During the day — whenever I found time</div>
+            </div>
+          </li>
+          <li class="option-item" onclick="selectOption('q2_timing','night',this)">
+            <div class="option-radio"></div>
+            <div class="option-text">
+              <div class="option-hi">रात को — सोने से पहले</div>
+              <div class="option-en">At night — before sleeping</div>
+            </div>
+          </li>
+          <li class="option-item" onclick="selectOption('q2_timing','no_fixed',this)">
+            <div class="option-radio"></div>
+            <div class="option-text">
+              <div class="option-hi">कोई मुक़र्रर वक़्त नहीं था</div>
+              <div class="option-en">No fixed time — it varied every day</div>
+            </div>
+          </li>
+        </ul>
+        <div class="error-msg">कृपया एक जवाब चुनें · Please select an answer</div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="question-card" data-qid="q3_organised" data-required="true">
+        <div class="q-header">
+          <div class="q-num">03</div>
+          <div class="q-text">
+            <div class="q-badge badge-scale">SCALE</div>
+            <div class="q-text-hi">इस रमज़ान आप कितना मुनज़्ज़म रहे — पिछले रमज़ान के मुक़ाबले?<span class="required">*</span></div>
+            <div class="q-text-en">How organised were you this Ramadan — compared to previous years?</div>
+          </div>
+        </div>
+        <div class="scale-wrap">
+          <div class="scale-labels">
+            <span class="scale-label">पहले से कम</span>
+            <span class="scale-label" style="text-align:right">पहले से बेहतर</span>
+          </div>
+          <div class="scale-track">
+            <button class="scale-btn" onclick="selectScale('q3_organised',1,this)">1</button>
+            <button class="scale-btn" onclick="selectScale('q3_organised',2,this)">2</button>
+            <button class="scale-btn" onclick="selectScale('q3_organised',3,this)">3</button>
+            <button class="scale-btn" onclick="selectScale('q3_organised',4,this)">4</button>
+            <button class="scale-btn" onclick="selectScale('q3_organised',5,this)">5</button>
+          </div>
+        </div>
+        <div class="error-msg">कृपया एक नंबर चुनें · Please select a number</div>
+      </div>
+
+      <div class="nav-buttons">
+        <div></div>
+        <button id="next-1" class="btn-primary">आगे &nbsp;·&nbsp; Next →</button>
+      </div>
+    </div>
+
+    <!-- ── SECTION 2: क्या आयतें दिल में उतरीं? ─────── -->
+    <div id="section-2" class="form-section" style="display:none">
+
+      <div class="section-header">
+        <div class="section-eyebrow">Section 2 of 4</div>
+        <div class="section-title-hi">क्या आयतें दिल में उतरीं?</div>
+        <div class="section-title-en">Did the āyāt land in your heart?</div>
+      </div>
+
+      <div class="note-strip">
+        <div class="note-hi">इस रमज़ान हर दिन एक आयत दी गई — एक काम से जुड़ी। ये सवाल देखते हैं कि क्या आप सच में उनके साथ थे।</div>
+        <div class="note-en">Each day this Ramadan carried one āyah connected to a task. These questions check if you were truly present with them.</div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="question-card" data-qid="q4_ayah_engagement" data-required="true">
+        <div class="q-header">
+          <div class="q-num">04</div>
+          <div class="q-text">
+            <div class="q-badge badge-mcq">MCQ</div>
+            <div class="q-text-hi">चैलेंज के दौरान क़ुरआन की आयतें आपने कैसे पढ़ीं?<span class="required">*</span></div>
+            <div class="q-text-en">How did you engage with the Qur'anic āyāt during the challenge?</div>
+          </div>
+        </div>
+        <ul class="options-list">
+          <li class="option-item" onclick="selectOption('q4_ayah_engagement','glanced',this)">
+            <div class="option-radio"></div>
+            <div class="option-text">
+              <div class="option-hi">सिर्फ़ देखा — ज़्यादा नहीं सोचा</div>
+              <div class="option-en">I glanced at them — didn't think much</div>
+            </div>
+          </li>
+          <li class="option-item" onclick="selectOption('q4_ayah_engagement','read_understood',this)">
+            <div class="option-radio"></div>
+            <div class="option-text">
+              <div class="option-hi">पढ़ा और तर्जुमा समझा</div>
+              <div class="option-en">I read and understood the translation</div>
+            </div>
+          </li>
+          <li class="option-item" onclick="selectOption('q4_ayah_engagement','read_reflected',this)">
+            <div class="option-radio"></div>
+            <div class="option-text">
+              <div class="option-hi">पढ़ा, समझा, और उस पर सोचा</div>
+              <div class="option-en">I read, understood, and reflected on them</div>
+            </div>
+          </li>
+          <li class="option-item" onclick="selectOption('q4_ayah_engagement','shared',this)">
+            <div class="option-radio"></div>
+            <div class="option-text">
+              <div class="option-hi">पढ़ा, सोचा, और किसी से शेयर भी किया</div>
+              <div class="option-en">I read, reflected, and shared with someone</div>
+            </div>
+          </li>
+        </ul>
+        <div class="error-msg">कृपया एक जवाब चुनें · Please select an answer</div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="question-card" data-qid="q5_ayah_stayed" data-required="true">
+        <div class="q-header">
+          <div class="q-num">05</div>
+          <div class="q-text">
+            <div class="q-badge badge-short">SHORT ANSWER</div>
+            <div class="q-text-hi">एक आयत जो इस रमज़ान आपके दिल में रह गई — कौन सी थी और क्यों?<span class="required">*</span></div>
+            <div class="q-text-en">One āyah from this Ramadan that stayed with you — which one, and why?</div>
+          </div>
+        </div>
+        <textarea class="textarea-input" rows="4"
+          placeholder="यहाँ लिखें... / Write here..."
+          oninput="onTextInput('q5_ayah_stayed',this)"></textarea>
+        <div class="error-msg">कृपया कुछ लिखें · Please write something</div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="question-card" data-qid="q6_connection" data-required="true">
+        <div class="q-header">
+          <div class="q-num">06</div>
+          <div class="q-text">
+            <div class="q-badge badge-mcq">MCQ</div>
+            <div class="q-text-hi">क़ुरआन की आयतों और रोज़ाना के कामों के बीच का रिश्ता — क्या आपको महसूस हुआ?<span class="required">*</span></div>
+            <div class="q-text-en">The connection between the āyāt and daily tasks — did you feel it?</div>
+          </div>
+        </div>
+        <ul class="options-list">
+          <li class="option-item" onclick="selectOption('q6_connection','no',this)">
+            <div class="option-radio"></div>
+            <div class="option-text">
+              <div class="option-hi">नहीं — मुझे रिश्ता नहीं दिखा</div>
+              <div class="option-en">No — I didn't see the connection</div>
+            </div>
+          </li>
+          <li class="option-item" onclick="selectOption('q6_connection','sometimes',this)">
+            <div class="option-radio"></div>
+            <div class="option-text">
+              <div class="option-hi">कभी-कभी — कुछ दिन समझ आया</div>
+              <div class="option-en">Sometimes — I felt it on some days</div>
+            </div>
+          </li>
+          <li class="option-item" onclick="selectOption('q6_connection','often',this)">
+            <div class="option-radio"></div>
+            <div class="option-text">
+              <div class="option-hi">अक्सर — ज़्यादातर दिन महसूस हुआ</div>
+              <div class="option-en">Often — I felt it most days</div>
+            </div>
+          </li>
+          <li class="option-item" onclick="selectOption('q6_connection','always',this)">
+            <div class="option-radio"></div>
+            <div class="option-text">
+              <div class="option-hi">हाँ — हर आयत और काम एक ही बात कह रहे थे</div>
+              <div class="option-en">Yes — every āyah and task were saying the same thing</div>
+            </div>
+          </li>
+        </ul>
+        <div class="error-msg">कृपया एक जवाब चुनें · Please select an answer</div>
+      </div>
+
+      <div class="nav-buttons">
+        <button id="prev-2" class="btn-ghost">← वापस · Back</button>
+        <button id="next-2" class="btn-primary">आगे &nbsp;·&nbsp; Next →</button>
+      </div>
+    </div>
+
+    <!-- ── SECTION 3: क्या कुछ बदला? ──────────────────── -->
+    <div id="section-3" class="form-section" style="display:none">
+
+      <div class="section-header">
+        <div class="section-eyebrow">Section 3 of 4</div>
+        <div class="section-title-hi">क्या कुछ बदला?</div>
+        <div class="section-title-en">Did something change?</div>
+      </div>
+
+      <!-- Q7 -->
+      <div class="question-card" data-qid="q7_impact" data-required="true">
+        <div class="q-header">
+          <div class="q-num">07</div>
+          <div class="q-text">
+            <div class="q-badge badge-mcq">MULTI-SELECT</div>
+            <div class="q-text-hi">इस चैलेंज ने आपकी ज़िन्दगी में क्या सबसे ज़्यादा असर किया? <span style="font-size:12px; color:var(--text-muted); font-family:var(--font-body);">(एक से ज़्यादा चुन सकते हैं)</span><span class="required">*</span></div>
+            <div class="q-text-en">What did this challenge impact most in your life? <em style="font-size:12px;">(select all that apply)</em></div>
+          </div>
+        </div>
+        <ul class="options-list">
+          <li class="option-item checkbox-item" data-value="salah" onclick="toggleCheckbox('q7_impact','salah',this)">
+            <div class="option-check"></div>
+            <div class="option-text">
+              <div class="option-hi">नमाज़ की पाबंदी</div>
+              <div class="option-en">Consistency in Salāh</div>
+            </div>
+          </li>
+          <li class="option-item checkbox-item" data-value="quran" onclick="toggleCheckbox('q7_impact','quran',this)">
+            <div class="option-check"></div>
+            <div class="option-text">
+              <div class="option-hi">क़ुरआन से रिश्ता</div>
+              <div class="option-en">My relationship with the Qur'an</div>
+            </div>
+          </li>
+          <li class="option-item checkbox-item" data-value="family" onclick="toggleCheckbox('q7_impact','family',this)">
+            <div class="option-check"></div>
+            <div class="option-text">
+              <div class="option-hi">घर और रिश्तों में बेहतरी</div>
+              <div class="option-en">Improvement in home and relationships</div>
+            </div>
+          </li>
+          <li class="option-item checkbox-item" data-value="tadabbur" onclick="toggleCheckbox('q7_impact','tadabbur',this)">
+            <div class="option-check"></div>
+            <div class="option-text">
+              <div class="option-hi">अपने आप को समझना — तदब्बुर</div>
+              <div class="option-en">Self-reflection — tadabbur</div>
+            </div>
+          </li>
+          <li class="option-item checkbox-item" data-value="nothing" onclick="toggleCheckbox('q7_impact','nothing',this)">
+            <div class="option-check"></div>
+            <div class="option-text">
+              <div class="option-hi">कुछ ख़ास असर नहीं हुआ — ईमानदारी से</div>
+              <div class="option-en">Honestly — not much changed this time</div>
+            </div>
+          </li>
+        </ul>
+        <div class="error-msg">कम से कम एक चुनें · Please select at least one</div>
+      </div>
+
+      <!-- Q8 -->
+      <div class="question-card" data-qid="q8_moment" data-required="true">
+        <div class="q-header">
+          <div class="q-num">08</div>
+          <div class="q-text">
+            <div class="q-badge badge-long">LONG ANSWER</div>
+            <div class="q-text-hi">कोई एक लम्हा — इस रमज़ान का — जो आप भूल नहीं सकते। वो क्या था?<span class="required">*</span></div>
+            <div class="q-text-en">One moment from this Ramadan you cannot forget. What was it?</div>
+          </div>
+        </div>
+        <textarea class="textarea-input tall" rows="5"
+          placeholder="यहाँ लिखें... / Write here..."
+          oninput="onTextInput('q8_moment',this)"></textarea>
+        <div class="error-msg">कृपया कुछ लिखें · Please write something</div>
+      </div>
+
+      <!-- Q9 -->
+      <div class="question-card" data-qid="q9_after_eid" data-required="true">
+        <div class="q-header">
+          <div class="q-num">09</div>
+          <div class="q-text">
+            <div class="q-badge badge-mcq">MCQ</div>
+            <div class="q-text-hi">ईद के बाद — आप क़ुरआन से रिश्ता कैसे रखना चाहते हैं?<span class="required">*</span></div>
+            <div class="q-text-en">After Eid — how do you want to keep your relationship with the Qur'an?</div>
+          </div>
+        </div>
+        <ul class="options-list">
+          <li class="option-item" onclick="selectOption('q9_after_eid','recitation',this)">
+            <div class="option-radio"></div>
+            <div class="option-text">
+              <div class="option-hi">बस तिलावत — रोज़ाना की आदत</div>
+              <div class="option-en">Just recitation — a daily habit</div>
+            </div>
+          </li>
+          <li class="option-item" onclick="selectOption('q9_after_eid','translation',this)">
+            <div class="option-radio"></div>
+            <div class="option-text">
+              <div class="option-hi">तर्जुमे के साथ — समझकर पढ़ना</div>
+              <div class="option-en">With translation — reading with understanding</div>
+            </div>
+          </li>
+          <li class="option-item" onclick="selectOption('q9_after_eid','depth',this)">
+            <div class="option-radio"></div>
+            <div class="option-text">
+              <div class="option-hi">गहराई से — अरबी, तफ़सीर, तदब्बुर</div>
+              <div class="option-en">Deeply — Arabic, tafsīr, reflection</div>
+            </div>
+          </li>
+          <li class="option-item" onclick="selectOption('q9_after_eid','community',this)">
+            <div class="option-radio"></div>
+            <div class="option-text">
+              <div class="option-hi">एक जमाअत के साथ — मिलकर पढ़ना</div>
+              <div class="option-en">With a community — studying together</div>
+            </div>
+          </li>
+        </ul>
+        <div class="error-msg">कृपया एक जवाब चुनें · Please select an answer</div>
+      </div>
+
+      <div class="nav-buttons">
+        <button id="prev-3" class="btn-ghost">← वापस · Back</button>
+        <button id="next-3" class="btn-primary">आगे &nbsp;·&nbsp; Next →</button>
+      </div>
+    </div>
+
+    <!-- ── SECTION 4: आपका दिल कहाँ है? ────────────────── -->
+    <div id="section-4" class="form-section" style="display:none">
+
+      <div class="section-header">
+        <div class="section-eyebrow">Section 4 of 4</div>
+        <div class="section-title-hi">आपका दिल कहाँ है?</div>
+        <div class="section-title-en">Where is your heart?</div>
+      </div>
+
+      <div class="note-strip deep">
+        <div class="note-hi">यह हिस्सा थोड़ा गहरा है। कोई सही या ग़लत जवाब नहीं। बस सच बोलें।</div>
+        <div class="note-en">This section goes deeper. No right or wrong answers. Just speak the truth.</div>
+      </div>
+
+      <!-- Q10 -->
+      <div class="question-card" data-qid="q10_relationship" data-required="true">
+        <div class="q-header">
+          <div class="q-num">10</div>
+          <div class="q-text">
+            <div class="q-badge badge-long">LONG ANSWER</div>
+            <div class="q-text-hi">क़ुरआन से आपका रिश्ता अभी कहाँ है — सच में? आप ख़ुद को कहाँ देखते हैं?<span class="required">*</span></div>
+            <div class="q-text-en">Where is your relationship with the Qur'an right now — honestly? Where do you see yourself?</div>
+          </div>
+        </div>
+        <textarea class="textarea-input tall" rows="5"
+          placeholder="यहाँ लिखें... / Write here..."
+          oninput="onTextInput('q10_relationship',this)"></textarea>
+        <div class="error-msg">कृपया कुछ लिखें · Please write something</div>
+      </div>
+
+      <!-- Q11 -->
+      <div class="question-card" data-qid="q11_readiness" data-required="true">
+        <div class="q-header">
+          <div class="q-num">11</div>
+          <div class="q-text">
+            <div class="q-badge badge-mcq">MCQ</div>
+            <div class="q-text-hi">अगर एक पूरा महीना — एक सूरत को गहराई से पढ़ने के लिए — मिले, तो क्या आप तैयार होंगे?<span class="required">*</span></div>
+            <div class="q-text-en">If you had a full month dedicated to studying one sūrah deeply — would you be ready?</div>
+          </div>
+        </div>
+        <ul class="options-list">
+          <li class="option-item" onclick="selectOption('q11_readiness','no',this)">
+            <div class="option-radio"></div>
+            <div class="option-text">
+              <div class="option-hi">नहीं — अभी इतना वक़्त नहीं</div>
+              <div class="option-en">No — I don't have that kind of time right now</div>
+            </div>
+          </li>
+          <li class="option-item" onclick="selectOption('q11_readiness','maybe',this)">
+            <div class="option-radio"></div>
+            <div class="option-text">
+              <div class="option-hi">शायद — देखूँगा कैसा रहता है</div>
+              <div class="option-en">Maybe — I'd need to see how it works</div>
+            </div>
+          </li>
+          <li class="option-item" onclick="selectOption('q11_readiness','yes_community',this)">
+            <div class="option-radio"></div>
+            <div class="option-text">
+              <div class="option-hi">हाँ — अगर सही साथी हों</div>
+              <div class="option-en">Yes — if the right people are alongside</div>
+            </div>
+          </li>
+          <li class="option-item" onclick="selectOption('q11_readiness','absolutely',this)">
+            <div class="option-radio"></div>
+            <div class="option-text">
+              <div class="option-hi">बिल्कुल — यही तो चाहिए था</div>
+              <div class="option-en">Absolutely — this is exactly what I've been looking for</div>
+            </div>
+          </li>
+        </ul>
+        <div class="error-msg">कृपया एक जवाब चुनें · Please select an answer</div>
+      </div>
+
+      <!-- Q12 — The vision test -->
+      <div class="question-card" data-qid="q12_vision" data-required="true">
+        <div class="q-header">
+          <div class="q-num">12</div>
+          <div class="q-text">
+            <div class="q-badge badge-long">LONG ANSWER</div>
+            <div class="q-text-hi">अगर आप एक महीने तक एक सूरत को एक छोटी-सी मुतअहिद बिरादरी के साथ पढ़ें — आप उससे क्या चाहेंगे?<span class="required">*</span></div>
+            <div class="q-text-en">If you studied one sūrah for a full month with a small, committed community — what would you want from that experience?</div>
+          </div>
+        </div>
+        <textarea class="textarea-input tall" rows="6"
+          placeholder="यहाँ लिखें... / Write here..."
+          oninput="onTextInput('q12_vision',this)"></textarea>
+        <div class="error-msg">कृपया कुछ लिखें · Please write something</div>
+      </div>
+
+      <!-- Q13 — Forward-looking optional -->
+      <div class="question-card" data-qid="q13_forward" data-required="false">
+        <div class="q-header">
+          <div class="q-num">13</div>
+          <div class="q-text">
+            <div class="q-badge badge-short">SHORT ANSWER</div>
+            <div class="q-text-hi">ईद के बाद आप ख़ुद को क़ुरआन के साथ कहाँ देखना चाहते हैं?
+              <span style="font-size:11px; color:var(--text-muted); font-family:var(--font-body);">(optional)</span>
+            </div>
+            <div class="q-text-en">After Eid — where do you want to see yourself with the Qur'an?</div>
+          </div>
+        </div>
+        <textarea class="textarea-input" rows="3"
+          placeholder="यहाँ लिखें... / Write here..."
+          oninput="onTextInput('q13_forward',this)"></textarea>
+      </div>
+
+      <div class="nav-buttons">
+        <button id="prev-4" class="btn-ghost">← वापस · Back</button>
+        <button id="submit-btn" class="btn-primary">
+          जमा करें &nbsp;·&nbsp; Submit ✦
+        </button>
+      </div>
+
+    </div><!-- /section-4 -->
+
+  </div><!-- /screen-form -->
+
+  <!-- ══ SCREEN: THANK YOU ═══════════════════════════════ -->
+  <div id="screen-thankyou" class="screen">
+    <div class="thankyou animate-fade">
+
+      <img src="icons/logo.png" alt="QWV" class="thankyou-icon">
+
+      <div class="thankyou-arabic">جَزَاكَ اللَّهُ خَيْرًا</div>
+
+      <div class="thankyou-title-hi">शुक्रिया — दिल से</div>
+      <div class="thankyou-title-en">JazākaLlāhu Khayran</div>
+
+      <div class="thankyou-divider"></div>
+
+      <p class="thankyou-body-hi">
+        यह रमज़ान ख़त्म हो रहा है। लेकिन क़ुरआन का सफ़र कभी ख़त्म नहीं होता।<br><br>
+        जो लोग सच में तैयार हैं — जिनके दिल में एक आग है —<br>
+        एक invitation के लिए तैयार रहिए।
+      </p>
+
+      <p class="thankyou-body-en">
+        This Ramadan is ending. But the journey with the Qur'an never ends.<br><br>
+        For those whose hearts carry a hunger —<br>
+        be prepared for an invitation.
+      </p>
+
+      <div class="ayah-callout" style="max-width:420px;">
+        <div class="ayah-arabic">وَلَقَدۡ يَسَّرۡنَا ٱلۡقُرۡءَانَ لِلذِّكۡرِ</div>
+        <div class="ayah-trans-hi">"और बेशक हमने क़ुरआन को याद के लिए आसान कर दिया।"</div>
+        <div class="ayah-trans-en">"And We have certainly made the Qur'an easy for remembrance."</div>
+        <div class="ayah-ref">Al-Qamar: 17</div>
+      </div>
+
+      <div style="text-align:center; margin-top:28px; margin-bottom:8px;">
+        <div class="hint-pill" style="font-size:12px; padding:12px 28px; letter-spacing:3px;">
+          kuch aane wala hai &nbsp;·&nbsp; کچھ آنے والا ہے
+        </div>
+      </div>
+
+      <div style="margin-top:36px; display:flex; flex-direction:column; align-items:center; gap:14px;">
+        <p style="font-size:10px; color:var(--text-faint); font-family:var(--font-display); letter-spacing:2.5px; text-transform:uppercase;">Follow · फ़ॉलो करें</p>
+        <div style="display:flex; gap:20px; align-items:center; flex-wrap:wrap; justify-content:center;">
+          <a href="https://instagram.com/quranworldview" target="_blank" rel="noopener"
+            style="display:inline-flex; align-items:center; gap:8px; color:var(--gold); font-size:13px; text-decoration:none; border:1px solid var(--border-gold); border-radius:8px; padding:10px 18px; transition:all 0.2s ease;"
+            onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border-gold)'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            @quranworldview
+          </a>
+          <a href="https://www.youtube.com/@QuranWorldView" target="_blank" rel="noopener"
+            style="display:inline-flex; align-items:center; gap:8px; color:var(--gold); font-size:13px; text-decoration:none; border:1px solid var(--border-gold); border-radius:8px; padding:10px 18px; transition:all 0.2s ease;"
+            onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border-gold)'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+            @QuranWorldView
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /app -->
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
