@@ -2,29 +2,14 @@
 // Vanilla JS · Firebase Firestore · Draft Persistence
 
 // ── Firebase Config — replace with your own ──────────────
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
+const FIREBASE_CONFIG = {
     apiKey: "AIzaSyB221Gxn20Y0e-yEUHJbvZIIpEosECGNBk",
     authDomain: "rc-feedback.firebaseapp.com",
     projectId: "rc-feedback",
     storageBucket: "rc-feedback.firebasestorage.app",
     messagingSenderId: "897555959222",
     appId: "1:897555959222:web:801b1cc77d371699198517",
-    measurementId: "G-Z5NJK43BTC"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
+};
 
 // ── Storage keys ──────────────────────────────────────────
 const DRAFT_KEY   = 'qwv_sabiqun_draft';
